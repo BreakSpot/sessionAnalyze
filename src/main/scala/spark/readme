@@ -1,0 +1,11 @@
+bin/kafka-topics.sh --list --zookeeper hadoop02:2181
+nohup bin/kafka-server-start.sh  config/server.properties &
+http://spark.apache.org/docs/latest/streaming-kafka-0-10-integration.html
+bin/kafka-console-consumer.sh --zookeeper hadoop02:2181 --from-beginning --topic kafka.topics
+
+1、	实时的动态获取黑名单机制，将每天对每个广告点击超过100次的用户拉黑
+2、	基于黑名单的非法广告点击流量过滤机制
+3、	每天各省各城市各广告的点击流量实时统计，基于第二点的数据基础之上
+4、	统计每天各省top3热门广告
+5、	统计各广告最近1小时内的点击量趋势，各广告最近1小时内各分钟的点击量，也是基于第2点的数据基础之上
+6、	使用高性能方式将实时统计结果写入MySQL
